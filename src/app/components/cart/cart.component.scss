@@ -1,0 +1,132 @@
+mat-expansion-panel {
+  border: 1px solid #dcdcdc;
+}
+.cartDetails {
+  display: flex;
+  margin-top: 14px;
+}
+.cart-content {
+  margin-top: 60px;
+  padding-bottom: 15px;
+  margin-left: 177px;
+  width: 774px;
+  border: 1px solid #707070;
+  border-radius: 1px;
+}
+img {
+  margin-top: 10px;
+  margin-left: 80px;
+
+  height: 85px;
+}
+.bookName {
+  font: normal normal normal 14px/17px Lato;
+  margin: 0;
+  margin-bottom: 5px;
+}
+.authorName {
+  font: normal normal normal 10px/12px Lato;
+  color: #9d9d9d;
+  margin: 0;
+  margin-bottom: 5px;
+}
+.details {
+  font: normal normal bold 15px/18px Lato;
+}
+.input-number {
+  width: 35px;
+  height: 20px;
+  margin-left: 10px;
+  border: 1px solid #dbdbdb;
+  border-radius: 1px;
+}
+.button {
+  margin-left: 590px;
+  width: 150px;
+  height: 35px;
+  background: #3371b5 0% 0% no-repeat padding-box;
+  border: 0px solid #e4e4e4;
+  color: #ffffff;
+  border-radius: 2px;
+}
+.cart-text {
+  font-weight: 500;
+  font-size: 16px;
+  margin-left: 30px;
+  margin-top: 12px;
+}
+.content {
+  margin-left: 40px;
+  margin-top: 10px;
+}
+mat-expansion-panel {
+  margin-top: 15px;
+  left: 177px;
+  width: 774px;
+
+  border-radius: 1px;
+}
+.mat-expansion-panel-spacing {
+  margin-top: 15px !important;
+}
+
+input {
+  margin-right: 20px;
+  margin-bottom: 15px;
+  width: 251px;
+  height: 45px;
+  border: 1px solid #dcdcdc;
+}
+textarea {
+  margin-right: 20px;
+  margin-bottom: 15px;
+  width: 527px;
+  height: 60px;
+  border: 1px solid #dcdcdc;
+}
+.icons {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #dbdbdb;
+  border-radius: 20px;
+}
+.display {
+  display: flex;
+  margin-top: 30px;
+  margin-left: -10px;
+}
+.remove {
+  font: normal normal normal 12px/24px Lato;
+  margin-left: 20px;
+}
+.number {
+  width: 41px;
+  height: 22px;
+  border: 1px solid #dbdbdb;
+  border-radius: 1px;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.type {
+  font: normal normal normal 14px/15px Lato;
+  color: #333232;
+}
+:host ::ng-deep .mat-radio-outer-circle {
+  margin-top: 3px;
+  margin-left: 3px;
+  width: 15px;
+  height: 15px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #707070;
+}
+.radio-button {
+  margin-top: 10px;
+}
+.radio-button {
+  color: red;
+  font: normal normal normal 12px/15px Lato;
+  color: #333232;
+  width: 15%;
+  margin-top: 10px;
+}

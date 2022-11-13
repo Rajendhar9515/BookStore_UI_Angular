@@ -1,0 +1,68 @@
+<div>
+  <div class="login-page">
+    <div class="image">
+      <img src="../assets/2766594.png" alt="" />
+      <div class="image-text">ONLINE BOOK SHOPPING</div>
+    </div>
+    <mat-tab-group
+      mat-align-tabs="start"
+      [(selectedIndex)]="indexPosition"
+      class="user-login-page"
+    >
+      <form [formGroup]="userRegestration">
+        <mat-tab label="LOGIN">
+          <div class="input-box">
+            <div class="email">Email id</div>
+            <input type="text" class="email-input" formControlName="email" />
+          </div>
+          <div class="passwords">
+            <div class="texts" required>Password</div>
+            <input
+              type="password"
+              class="password"
+              formControlName="password"
+            />
+          </div>
+          <div class="buttons">
+            <button class="login" (click)="onLogin()">Login</button>
+          </div>
+          <div class="buttons">----------------- OR -----------------</div>
+          <div class="buttons">
+            <button class="button-text">Facebook</button>
+            <div>
+              <button class="Google-button">Google</button>
+            </div>
+          </div>
+        </mat-tab>
+      </form>
+      <form [formGroup]="userLogin">
+        <mat-tab label="SIGN UP">
+          <div class="signUp-input">
+            <div class="input-name">FullName</div>
+            <input type="text" class="input-type" formControlName="fullName" />
+
+            <div class="input-name">Email id</div>
+            <input type="text" class="input-text" formControlName="email" />
+
+            <div class="input-name">password</div>
+            <input
+              type="password"
+              class="input-text"
+              formControlName="password"
+            />
+
+            <div class="input-name">Mobile Number</div>
+            <input
+              type="number"
+              class="input-text"
+              formControlName="phoneNumber"
+            />
+          </div>
+          <div class="buttons">
+            <button class="SignUp-button" (click)="onSignUp()">Sign Up</button>
+          </div>
+        </mat-tab>
+      </form>
+    </mat-tab-group>
+  </div>
+</div>

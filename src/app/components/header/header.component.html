@@ -1,0 +1,69 @@
+<header class="header-content">
+  <div class="book-img">
+    <img src="../assets/education (1).svg" alt="" />
+    <p class="name">Bookstore</p>
+  </div>
+  <div class="search-box">
+    <mat-icon class="search">search</mat-icon>
+    <input
+      type="search"
+      placeholder="search"
+      [(ngModel)]="bookName"
+      (ngModelChange)="onBookList()"
+    />
+  </div>
+  <div class="cart">
+    <div class="person">
+      <div>
+        <mat-icon
+          class="icon"
+          mat-button
+          [matMenuTriggerFor]="menu"
+          #menuTrigger
+          >person</mat-icon
+        >
+      </div>
+      <div>
+        <p class="userName">{{ userName ? userName : "profile" }}</p>
+      </div>
+    </div>
+    <mat-menu #menu="matMenu">
+      <div class="signup" *ngIf="!userName">
+        <div class="welcome">Welcome</div>
+        <div class="text">To acsess account and manage orders</div>
+        <button routerLink="/login" class="login-singup">LOGIN/SIGNUP</button>
+      </div>
+
+      <div class="login-page">
+        <div *ngIf="userName">Hello {{ userName }}</div>
+        <div class="content" *ngIf="userName">
+          <mat-icon class="icons">person</mat-icon>
+          <span class="profile">profile</span>
+        </div>
+        <div routerLink="/myOrders">
+          <mat-icon class="icons">markunread_mailbox</mat-icon>My Orders
+        </div>
+        <div routerLink="/wishlist">
+          <mat-icon class="icons">favorite</mat-icon>My Wishlist
+        </div>
+        <button class="logout-button" (click)="onLogOut()" *ngIf="userName">
+          Logout
+        </button>
+      </div>
+    </mat-menu>
+
+    <div class="cart-list" routerLink="/cart">
+      <div>
+        <div
+          class="Badge"
+          matBadge="{{ cartCount }}"
+          matBadgeOverlap="false"
+          [matBadgeHidden]="cartCount == 0"
+        ></div>
+      </div>
+      <img class="cart-text-image" src="../assets/supermarket.svg" alt="" />
+
+      <p class="cart-text">cart</p>
+    </div>
+  </div>
+</header>

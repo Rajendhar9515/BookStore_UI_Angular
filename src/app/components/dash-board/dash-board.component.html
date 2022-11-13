@@ -1,0 +1,48 @@
+<app-header
+  [cartCount]="cartCount"
+  (booksList)="emittedData($event)"
+  (bookData)="bookList($event)"
+></app-header>
+<div>
+  <div class="header-content">
+    <div class="book-text">Books</div>
+    <div class="book-count">({{ dataList?.length }}items)</div>
+    <select name="Sort by relevence" id="" (change)="onSortByPrice($event)">
+      <option *ngFor="let sortPrice of dropDownList" [value]="sortPrice">
+        {{ sortPrice }}
+      </option>
+    </select>
+  </div>
+  <div class="books-view">
+    <div
+      *ngFor="let data of dataList | search: bookName"
+      class="books-view-border"
+    >
+      <div class="profile-pic">
+        <img [src]="data.profilePic" alt="" />
+      </div>
+      <div class="book-content">
+        <p class="bookName">{{ data.bookName }}</p>
+        <p class="authorName">by {{ data.authorName }}</p>
+        <p class="price">Rs. {{ data.price }}</p>
+      </div>
+
+      <div class="buttons" *ngIf="!data.isAddedToCart">
+        <button
+          mat-stroked-button
+          class="add-item"
+          (click)="addToCart(data.id)"
+        >
+          ADD TO BAG
+        </button>
+        <button mat-stroked-button (click)="onWishlist(data.id)">
+          WISHLIST
+        </button>
+      </div>
+      <div *ngIf="data.isAddedToCart">
+        <button mat-stroked-button class="addToBag">ADD TO BAG</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

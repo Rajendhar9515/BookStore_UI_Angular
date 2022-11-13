@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="border-box">
+  <div class="text">
+    <p class="wishlist">My Wishlist ({{ wishlistData?.length }})</p>
+  </div>
+  <div class="content" *ngFor="let wishlist of wishlistData; let i = index">
+    <div class="total-content">
+      <div><img [src]="wishlist.bookDetails.profilePic" alt="" /></div>
+
+      <div class="text-content">
+        <p class="bookName">{{ wishlist.bookDetails.bookName }}</p>
+        <p class="authorName">by {{ wishlist.bookDetails.authorName }}</p>
+        <p class="price">Rs. {{ wishlist.bookDetails.price }}</p>
+      </div>
+    </div>
+    <div>
+      <mat-icon (click)="onRemoveWishlist(wishlist.id)">delete</mat-icon>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

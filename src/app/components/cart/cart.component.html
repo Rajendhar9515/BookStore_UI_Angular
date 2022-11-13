@@ -1,0 +1,135 @@
+<app-header [cartCount]="cartData?.length"></app-header>
+<div>
+  <div class="cart-content">
+    <div class="cart-text">My cart ({{ cartData?.length }})</div>
+    <div class="cartDetails" *ngFor="let data of cartData; let i = index">
+      <div>
+        <img [src]="data.bookDetails.profilePic" alt="" />
+      </div>
+      <div class="content">
+        <p class="bookName">{{ data.bookDetails.bookName }}</p>
+        <p class="authorName">by {{ data.bookDetails.authorName }}</p>
+        <p class="details">Rs. {{ data.totalBookPrice }}</p>
+        <div class="display">
+          <button
+            class="icons"
+            (click)="onDecriment(i, data.id)"
+            [disabled]="data.quantity <= 1"
+          >
+            -
+          </button>
+          <div class="number">
+            {{ data.quantity }}
+          </div>
+          <button
+            class="icons"
+            (click)="onIncriment(i, data.bookDetails.quantity, data.id)"
+          >
+            +
+          </button>
+          <p class="remove" (click)="onRemove(data.id)">Remove</p>
+        </div>
+      </div>
+    </div>
+    <button
+      *ngIf="!isExpanded && cartData?.length"
+      class="button"
+      (click)="onPlaceOrder()"
+    >
+      PLACE ORDER
+    </button>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel hideToggle [expanded]="isExpanded">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="details">Customer Details </mat-panel-title>
+      </mat-expansion-panel-header>
+      <input
+        type="text"
+        name="fullName"
+        [(ngModel)]="userDetails.fullName"
+        placeholder="Name"
+      />
+      <input
+        type="text"
+        name="phoneNumber"
+        [(ngModel)]="userDetails.phoneNumber"
+        placeholder="Phone Number"
+      />
+      <input
+        type="text"
+        name="pincode"
+        [(ngModel)]="userDetails.pincode"
+        placeholder="Pincode"
+      />
+      <input
+        type="text"
+        name="Locality"
+        [(ngModel)]="userDetails.locality"
+        placeholder="Locality"
+      />
+      <div>
+        <textarea
+          name="address"
+          id=""
+          cols="30"
+          rows="10"
+          [(ngModel)]="userDetails.address"
+          placeholder="address"
+        ></textarea>
+      </div>
+      <input
+        type="text"
+        name="city"
+        [(ngModel)]="userDetails.city"
+        placeholder="City/Town"
+      />
+      <input
+        type="text"
+        name="pincode"
+        [(ngModel)]="userDetails.landmark"
+        placeholder="Landmark"
+      />
+      <div class="type">Type</div>
+      <mat-radio-group
+        aria-label="Select an option"
+        class="radio-button"
+        name="type"
+        [(ngModel)]="userDetails.type"
+        ><div>
+          <mat-radio-button class="radio-button" value="Home"
+            >Home</mat-radio-button
+          >
+          <mat-radio-button class="radio-button" value="Work"
+            >Work</mat-radio-button
+          >
+          <mat-radio-button class="radio-button" value="Other"
+            >Other</mat-radio-button
+          >
+        </div>
+      </mat-radio-group>
+      <button *ngIf="!isExpandedSummary" class="button" (click)="onContinue()">
+        CONTINUE
+      </button>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-accordion>
+    <mat-expansion-panel hideToggle [expanded]="isExpandedSummary">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="details"> Order Summery </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="cartDetails" *ngFor="let data of cartData; let i = index">
+        <div>
+          <img [src]="data.bookDetails.profilePic" alt="" />
+        </div>
+        <div class="content">
+          <p class="bookName">{{ data.bookDetails.bookName }}</p>
+          <p class="authorName">by {{ data.bookDetails.authorName }}</p>
+          <p class="details">Rs. {{ data.totalBookPrice }}</p>
+        </div>
+      </div>
+      <button (click)="onOrder()" class="button">CHECKOUT</button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<app-footer></app-footer>

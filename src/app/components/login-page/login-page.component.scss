@@ -1,0 +1,149 @@
+img {
+  height: 245px;
+  border-radius: 120px;
+  margin-top: 52px;
+  margin-left: 53px;
+}
+.image {
+  margin-top: 100px;
+  margin-left: 320px;
+  width: 624px;
+  height: 391px;
+  background: #f5f5f5 0% 0% no-repeat padding-box;
+  border-radius: 21px 0px 0px 21px;
+}
+.card {
+  width: 290px;
+  margin-top: 200px;
+  height: 260px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 5px 15px #00000029;
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  opacity: 1;
+}
+.login-page {
+  display: flex;
+}
+
+.buttons {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+.SignUp-button {
+  width: 252px;
+  height: 37px;
+  background: #a03037 0% 0% no-repeat padding-box;
+  border-radius: 3px;
+  color: #ffffff;
+  border: 0px solid #e4e4e4;
+  font: normal normal normal 15px/20px Roboto;
+}
+
+.user-login-page {
+  margin-top: 85px;
+  margin-bottom: -10px;
+  margin-right: 285px;
+  box-shadow: 0px 5px 15px #00000029;
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+}
+.login {
+  width: 252px;
+  height: 37px;
+  background: #a03037 0% 0% no-repeat padding-box;
+  color: #ffffff;
+  border-radius: 3px;
+  border: 0px solid #e4e4e4;
+}
+.button-text {
+  width: 126px;
+  height: 37px;
+  background: #4266b2 0% 0% no-repeat padding-box;
+  border-radius: 3px;
+  border: 0px solid #e4e4e4;
+  color: #ffffff;
+}
+.Google-button {
+  margin-left: 10px;
+  width: 119px;
+  height: 37px;
+  background: #f5f5f5 0% 0% no-repeat padding-box;
+  border: 1px solid #e4e4e4;
+  border-radius: 3px;
+}
+.image-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  word-spacing: 2px;
+}
+.texts {
+  font: normal normal normal 10px/13px Roboto;
+
+  color: #a03037;
+}
+.email {
+  font: normal normal normal 10px/13px Roboto;
+}
+.email-input {
+  width: 252px;
+  height: 35px;
+  border: 1px solid #e2e2e2;
+  border-radius: 2px;
+}
+.password {
+  width: 252px;
+  height: 35px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #a03037;
+  border-radius: 2px;
+  opacity: 1;
+}
+.input-box {
+  margin: 20px 0px 10px 30px;
+}
+.passwords {
+  margin-left: 30px;
+}
+.input-name {
+  font: 10px / 13px Roboto;
+  margin-top: 10px;
+}
+.input-type {
+  width: 252px;
+  height: 35px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #ff001c;
+  border-radius: 2px;
+  opacity: 1;
+}
+.input-text {
+  width: 252px;
+  height: 35px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #e2e2e2;
+  border-radius: 2px;
+  opacity: 1;
+}
+.signUp-input {
+  margin: 15px 0px 10px 30px;
+}
+::ng-deep {
+  .mat-tab-group.mat-primary .mat-ink-bar {
+    background-color: transparent;
+    box-sizing: 10px;
+    // border-top: 2px solid crimson;
+    // border-left: 2px solid crimson;
+    // border-right: 2px solid ;
+    border-bottom: 5px solid crimson;
+    width: 10px;
+    // height: 10px;
+  }
+}
+::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled) {
+  font-size: 20px;
+  color: #0a0102;
+}
