@@ -24,8 +24,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { OrderComponent } from './components/order/order.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
-
 import { SearchPipe } from './pipes/search.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,6 @@ import { SearchPipe } from './pipes/search.pipe';
     CartComponent,
     OrderComponent,
     WishlistComponent,
-
     SearchPipe,
   ],
   imports: [
@@ -58,6 +57,7 @@ import { SearchPipe } from './pipes/search.pipe';
     MatRadioModule,
     FormsModule,
     MatBadgeModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

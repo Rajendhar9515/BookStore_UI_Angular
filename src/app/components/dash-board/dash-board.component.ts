@@ -11,6 +11,7 @@ import { WishlistService } from 'src/app/Services/wishlist.service';
 export class DashBoardComponent implements OnInit {
   token: any;
   cartCount: number = 0;
+  p: number = 0;
   wishlist: any;
   bookName: string = '';
   isLoggedout: boolean = false;
@@ -48,7 +49,6 @@ export class DashBoardComponent implements OnInit {
   }
 
   onSortByPrice(event: any) {
-    console.log(event);
     if (event.target.value === 'Price:Low to High') {
       this.service.lowToHighPrice().subscribe((data) => {
         this.dataList = data.data;
@@ -92,20 +92,17 @@ export class DashBoardComponent implements OnInit {
 
   emittedData(data: any) {
     this.isLoggedout = data;
-    console.log(this.isLoggedout);
     if (this.isLoggedout) {
       this.dataList.map((obj: any) => {
         obj.isAddedToCart = false;
         return obj;
       });
       this.cartCount = 0;
-      this.getCartData();
     }
   }
 
-  bookList(data: any) {
+  onReceiveBookName(data: any) {
     this.bookName = data;
-    console.log(this.bookName);
   }
 
   modifyBookData() {
@@ -113,6 +110,5 @@ export class DashBoardComponent implements OnInit {
       obj.isAddedToCart = this.cartIds.includes(obj.id);
       return obj;
     });
-    // console.log(this.dataList);
   }
 }

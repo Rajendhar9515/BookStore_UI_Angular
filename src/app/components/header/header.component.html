@@ -8,7 +8,7 @@
     <input
       type="search"
       placeholder="search"
-      [(ngModel)]="bookName"
+      [(ngModel)]="searchBookName"
       (ngModelChange)="onBookList()"
     />
   </div>
@@ -38,13 +38,15 @@
         <div *ngIf="userName">Hello {{ userName }}</div>
         <div class="content" *ngIf="userName">
           <mat-icon class="icons">person</mat-icon>
-          <span class="profile">profile</span>
+          <span class="account">profile</span>
         </div>
-        <div routerLink="/myOrders">
-          <mat-icon class="icons">markunread_mailbox</mat-icon>My Orders
+        <div class="content" routerLink="/myOrders">
+          <mat-icon class="icons">markunread_mailbox</mat-icon>
+          <span class="account">My Orders</span>
         </div>
-        <div routerLink="/wishlist">
-          <mat-icon class="icons">favorite</mat-icon>My Wishlist
+        <div class="content" routerLink="/wishlist">
+          <mat-icon class="icons">favorite</mat-icon>
+          <span class="account"> My Wishlist</span>
         </div>
         <button class="logout-button" (click)="onLogOut()" *ngIf="userName">
           Logout

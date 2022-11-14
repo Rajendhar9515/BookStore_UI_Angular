@@ -27,7 +27,7 @@ img {
 }
 
 .buttons {
-  margin: 20px;
+  margin: 25px;
   display: flex;
   justify-content: center;
 }
@@ -95,12 +95,9 @@ img {
   border-radius: 2px;
 }
 .password {
-  width: 252px;
   height: 35px;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  border: 1px solid #a03037;
-  border-radius: 2px;
-  opacity: 1;
+  outline: none;
+  border: 0;
 }
 .input-box {
   margin: 20px 0px 10px 30px;
@@ -128,6 +125,18 @@ img {
   border-radius: 2px;
   opacity: 1;
 }
+.input-password {
+  display: flex;
+  align-items: center;
+  border: 1px solid #a03037;
+  width: 255px;
+  border-radius: 2px;
+}
+.password-icon {
+  margin-left: 58px;
+  color: #9d9d9d;
+  margin-top: 5px;
+}
 .signUp-input {
   margin: 15px 0px 10px 30px;
 }
@@ -135,12 +144,8 @@ img {
   .mat-tab-group.mat-primary .mat-ink-bar {
     background-color: transparent;
     box-sizing: 10px;
-    // border-top: 2px solid crimson;
-    // border-left: 2px solid crimson;
-    // border-right: 2px solid ;
     border-bottom: 5px solid crimson;
     width: 10px;
-    // height: 10px;
   }
 }
 ::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled) {

@@ -17,11 +17,17 @@
           </div>
           <div class="passwords">
             <div class="texts" required>Password</div>
-            <input
-              type="password"
-              class="password"
-              formControlName="password"
-            />
+            <div class="input-password">
+              <input
+                [type]="password"
+                class="password"
+                formControlName="password"
+              />
+              <div class="password-icon" (click)="onVisibility()">
+                <mat-icon *ngIf="isShowIcon">visibility_off</mat-icon>
+                <mat-icon *ngIf="!isShowIcon">visibility</mat-icon>
+              </div>
+            </div>
           </div>
           <div class="buttons">
             <button class="login" (click)="onLogin()">Login</button>

@@ -32,7 +32,6 @@ export class CartComponent implements OnInit {
     this.token = localStorage.getItem('token');
     this.cartService.cartdata(this.token).subscribe((resp) => {
       this.cartData = resp.data;
-      // console.log(this.cartData);
       this.userDetails = this.cartData[0].userDetails;
     });
   }

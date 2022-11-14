@@ -1,12 +1,13 @@
 <app-header
   [cartCount]="cartCount"
-  (booksList)="emittedData($event)"
-  (bookData)="bookList($event)"
+  (checkLoggedOut)="emittedData($event)"
+  (searchBookData)="onReceiveBookName($event)"
 ></app-header>
 <div>
   <div class="header-content">
     <div class="book-text">Books</div>
     <div class="book-count">({{ dataList?.length }}items)</div>
+
     <select name="Sort by relevence" id="" (change)="onSortByPrice($event)">
       <option *ngFor="let sortPrice of dropDownList" [value]="sortPrice">
         {{ sortPrice }}
@@ -15,7 +16,11 @@
   </div>
   <div class="books-view">
     <div
-      *ngFor="let data of dataList | search: bookName"
+      *ngFor="
+        let data of dataList
+          | search: bookName
+          | paginate: { itemsPerPage: 12, currentPage: p }
+      "
       class="books-view-border"
     >
       <div class="profile-pic">
@@ -44,5 +49,7 @@
       </div>
     </div>
   </div>
+  <pagination-controls (pageChange)="p = $event"> </pagination-controls>
 </div>
+
 <app-footer></app-footer>

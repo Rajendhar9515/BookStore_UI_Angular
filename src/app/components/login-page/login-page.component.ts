@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
   indexPosition: number = 0;
+  password: string = 'password';
+  isShowIcon: boolean = false;
 
   constructor(private service: UserService, private route: Router) {}
 
@@ -38,5 +40,16 @@ export class LoginPageComponent implements OnInit {
     this.service.userRegister(this.userLogin.value).subscribe((data) => {
       this.indexPosition = 0;
     });
+  }
+
+  onVisibility() {
+    if (!this.userRegestration.value.password) return;
+    if (this.password === 'password') {
+      this.password = 'text';
+      this.isShowIcon = true;
+    } else {
+      this.password = 'password';
+      this.isShowIcon = false;
+    }
   }
 }

@@ -7,11 +7,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   userName: any = '';
-  bookName: string = '';
+  searchBookName: string = '';
   @Input() cartCount: any;
-  @Output() booksList = new EventEmitter<any>();
-  @Output() bookData = new EventEmitter<any>();
-  // isLogedout: boolean = false;
+  @Output() checkLoggedOut = new EventEmitter<boolean>();
+  @Output() searchBookData = new EventEmitter<string>();
 
   constructor() {}
 
@@ -19,12 +18,13 @@ export class HeaderComponent implements OnInit {
     this.login();
   }
   onLogOut() {
-    this.booksList.emit(true);
+    this.checkLoggedOut.emit(true);
     localStorage.clear();
     this.login();
   }
+
   onBookList() {
-    this.bookData.emit(this.bookName);
+    this.searchBookData.emit(this.searchBookName);
   }
 
   login() {
