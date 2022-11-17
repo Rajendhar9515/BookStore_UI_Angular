@@ -23,8 +23,8 @@
           >person</mat-icon
         >
       </div>
-      <div>
-        <p class="userName">{{ userName ? userName : "profile" }}</p>
+      <div class="userName">
+        {{ userName ? userName : "profile" }}
       </div>
     </div>
     <mat-menu #menu="matMenu">
@@ -64,7 +64,6 @@
         ></div>
       </div>
       <img class="cart-text-image" src="../assets/supermarket.svg" alt="" />
-
       <p class="cart-text">cart</p>
     </div>
   </div>

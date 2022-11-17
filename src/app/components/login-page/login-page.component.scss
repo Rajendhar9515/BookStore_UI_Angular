@@ -140,14 +140,13 @@ img {
 .signUp-input {
   margin: 15px 0px 10px 30px;
 }
-::ng-deep {
-  .mat-tab-group.mat-primary .mat-ink-bar {
-    background-color: transparent;
-    box-sizing: 10px;
-    border-bottom: 5px solid crimson;
-    width: 10px;
-  }
+::ng-deep.mat-tab-group.mat-primary .mat-ink-bar {
+  background-color: transparent;
+  box-sizing: 10px;
+  border-bottom: 5px solid crimson;
+  width: 10px;
 }
+
 ::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled) {
   font-size: 20px;
   color: #0a0102;

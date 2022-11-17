@@ -10,6 +10,7 @@ export class WishlistComponent implements OnInit {
   token: any;
   wishlistData: any;
   wishlist: any;
+  bookIds: number = 0;
 
   constructor(private wishlistService: WishlistService) {}
 
@@ -21,6 +22,7 @@ export class WishlistComponent implements OnInit {
     this.token = localStorage.getItem('token');
     this.wishlistService.getWishlist(this.token).subscribe((resp) => {
       this.wishlistData = resp.data;
+      this.bookIds = resp.data.map((item: any) => item.bookDetails.id);
     });
   }
   onRemoveWishlist(wishlistId: number) {

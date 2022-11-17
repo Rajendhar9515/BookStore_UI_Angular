@@ -14,7 +14,7 @@ img {
 .book-img {
   display: flex;
   align-items: center;
-  margin-left: 163px;
+  margin-left: 132px;
   margin-right: 50px;
 }
 .cart {
@@ -63,12 +63,10 @@ header {
 }
 .person {
   color: #ffffff;
-  margin-right: 20px;
-  margin-left: 12px;
-  margin-top: 15px;
+  text-align: center;
+  margin-left: 15px;
 }
 .userName {
-  margin-left: -10px;
   margin-top: 8px;
   font: normal normal normal 12px/13px Roboto;
   letter-spacing: 0.45px;
@@ -78,8 +76,8 @@ header {
   background-color: #a03037;
 }
 .cart-list {
-  margin-top: 22px;
-  margin-left: 30px;
+  margin-top: 16px;
+  margin-left: 50px;
 }
 .logout-button {
   width: 100px;

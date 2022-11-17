@@ -5,6 +5,7 @@ import { DashBoardComponent } from './components/dash-board/dash-board.component
 import { LoginPageComponent } from './components/login-page/login-page.component';
 
 import { OrderComponent } from './components/order/order.component';
+import { PleaseLoginComponent } from './components/please-login/please-login.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'order', component: OrderComponent },
   { path: 'wishlist', component: WishlistComponent },
+  { path: 'please-login', component: PleaseLoginComponent },
 ];
 
 @NgModule({

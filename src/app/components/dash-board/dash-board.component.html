@@ -23,7 +23,7 @@
       "
       class="books-view-border"
     >
-      <div class="profile-pic">
+      <div title="Book List" class="profile-pic">
         <img [src]="data.profilePic" alt="" />
       </div>
       <div class="book-content">
@@ -40,7 +40,11 @@
         >
           ADD TO BAG
         </button>
-        <button mat-stroked-button (click)="onWishlist(data.id)">
+        <button
+          mat-stroked-button
+          [ngClass]="data.isWishlist ? 'wishlist-color' : 'wishlist'"
+          (click)="onWishlist(data.id)"
+        >
           WISHLIST
         </button>
       </div>
@@ -51,5 +55,4 @@
   </div>
   <pagination-controls (pageChange)="p = $event"> </pagination-controls>
 </div>
-
 <app-footer></app-footer>

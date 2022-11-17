@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookStoreService } from 'src/app/Services/book.service';
 import { CartService } from 'src/app/Services/cart.service';
 import { WishlistService } from 'src/app/Services/wishlist.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dash-board',
@@ -11,11 +12,13 @@ import { WishlistService } from 'src/app/Services/wishlist.service';
 export class DashBoardComponent implements OnInit {
   token: any;
   cartCount: number = 0;
-  p: number = 0;
+  p: number = 1;
   wishlist: any;
+  wishlistData: any;
+  wishlistBookIds: any = [];
   bookName: string = '';
   isLoggedout: boolean = false;
-  cartIds: any = [];
+  cartBookIds: any = [];
   dropDownList = [
     'Sort by relevence',
     'Price:Low to High',
@@ -30,7 +33,8 @@ export class DashBoardComponent implements OnInit {
   constructor(
     private service: BookStoreService,
     private cartService: CartService,
-    private wishlistService: WishlistService
+    private wishlistService: WishlistService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,12 +42,13 @@ export class DashBoardComponent implements OnInit {
     this.token = localStorage.getItem('token');
     if (!this.token) return;
     this.getCartData();
+    this.getWishlist();
   }
 
   getBooksDetails() {
     this.service.getBookStoreData().subscribe((data) => {
       this.dataList = data.data;
-      if (!this.cartIds) return;
+      if (!this.cartBookIds) return;
       this.modifyBookData();
     });
   }
@@ -65,6 +70,7 @@ export class DashBoardComponent implements OnInit {
   }
 
   addToCart(bookId: number) {
+    this.token = localStorage.getItem('token');
     if (!this.token) return;
     const data = {
       book_id: bookId,
@@ -79,14 +85,28 @@ export class DashBoardComponent implements OnInit {
   getCartData() {
     this.cartService.cartdata(this.token).subscribe((resp) => {
       this.cartCount = resp.data.length;
-      this.cartIds = resp.data.map((item: any) => item.bookDetails.id);
+      this.cartBookIds = resp.data.map((item: any) => item.bookDetails.id);
       this.modifyBookData();
     });
   }
 
   onWishlist(bookId: number) {
+    this.token = localStorage.getItem('token');
+    if (!this.token) {
+      this.router.navigateByUrl('/please-login');
+      return;
+    }
     this.wishlistService.addWishlist(this.token, bookId).subscribe((resp) => {
       this.wishlist = resp.data;
+      this.getWishlist();
+    });
+  }
+
+  getWishlist() {
+    this.token = localStorage.getItem('token');
+    this.wishlistService.getWishlist(this.token).subscribe((resp) => {
+      this.wishlistBookIds = resp.data.map((item: any) => item.bookDetails.id);
+      this.modifyBookData();
     });
   }
 
@@ -95,6 +115,7 @@ export class DashBoardComponent implements OnInit {
     if (this.isLoggedout) {
       this.dataList.map((obj: any) => {
         obj.isAddedToCart = false;
+        obj.isWishlist = false;
         return obj;
       });
       this.cartCount = 0;
@@ -107,7 +128,8 @@ export class DashBoardComponent implements OnInit {
 
   modifyBookData() {
     this.dataList.map((obj: any) => {
-      obj.isAddedToCart = this.cartIds.includes(obj.id);
+      obj.isAddedToCart = this.cartBookIds.includes(obj.id);
+      obj.isWishlist = this.wishlistBookIds.includes(obj.id);
       return obj;
     });
   }

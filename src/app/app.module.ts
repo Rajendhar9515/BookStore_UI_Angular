@@ -26,6 +26,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PleaseLoginComponent } from './components/please-login/please-login.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     OrderComponent,
     WishlistComponent,
     SearchPipe,
+    PleaseLoginComponent,
   ],
   imports: [
     BrowserModule,
